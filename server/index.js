@@ -1,3 +1,21 @@
+const express = require('express');
+const app = express();
+const path = require('path');
+const port = 3000;
+
+app.use('/', express.static(path.join(__dirname, '../dist')));
+
+app.get('hello', (req, res) => {
+
+  res.send('Hello World!');
+
+
+})
+
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+})
+
 function areaFromHypotenuse(h, l = 16, w = 9) {
   const result = l * w * ((h * h) / (l * l + w * w));
   console.log(`Size: ${h} inches, ${l}:${w} aspect ratio, Viewing area: ${Math.floor(result)} sq in in single, ${Math.floor(result * 2)} sq in in double`)
@@ -10,6 +28,9 @@ areaFromHypotenuse(27)
 areaFromHypotenuse(49, 32, 9)
 areaFromHypotenuse(32, 21, 9)
 areaFromHypotenuse(34, 21, 9)
+areaFromHypotenuse(15.6, 16, 9);
+areaFromHypotenuse(24, 16, 9);
+
 
 function pixelsFromMonitors(w, h, num) {
   console.log(`${w}x${h}x${1} monitors = ${w*h} pixels, ${w}x${h}x${2} monitors = ${w*h * 2} pixels, ${w}x${h}x${3} monitors = ${w*h * 3} pixels`);
