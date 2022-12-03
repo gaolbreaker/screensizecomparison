@@ -16,6 +16,7 @@ function App() {
       <select>
         {aspectRatios.map(ratio => <option value = {ratio}>{ratio}</option>)}
       </select>
+      Here I will show graphics representing monitors and monitor sizes.
     </>
   )
 }
